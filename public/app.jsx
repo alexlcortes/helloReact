@@ -2,9 +2,7 @@ var Greeter = React.createClass({
 
   getDefaultProps() {
     return {
-      name: 'React'
-    };
-    return {
+      name: 'React',
       message: 'Message'
     };
   },
