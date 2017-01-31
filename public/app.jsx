@@ -1,3 +1,38 @@
+var GreeterMessage = React.createClass({
+  render: function () {
+    return (
+      <div>
+        <h1>Some H1</h1>
+        <p>Some paragraph</p>
+      </div>
+    );
+  }
+});
+
+var GreeterForm = React.createClass({
+  onFormSubmit: function (e) {
+    e.preventDefault();
+
+    var name = this.refs.name.value;
+
+    if (name.length > 0) {
+      this.refs.name.value = '';
+      this.props.onNewName(name);
+    }
+  },
+  render: function () {
+    return (
+      <div>
+        <form onSubmit={this.onFormSubmit}>
+          <input type="text" ref="name"/>
+          <button>Set name</button>
+        </form>
+      </div>
+    );
+  }
+});
+
+
 var Greeter = React.createClass({
   // props get defined and these are the default props
   getDefaultProps() {
@@ -12,20 +47,10 @@ var Greeter = React.createClass({
       name: this.props.name
     };
   },
-  onButtonClick: function (e) {
-    e.preventDefault();
-
-    var nameRef = this.refs.name;
-    // once form is submited this.setState re-renders the compoments
-    var name = nameRef.value;
-    // this will clear the form field
-    nameRef.value = '';
-
-    if (typeof name === 'string' && name.length > 0){
-      this.setState ({
-        name: name
-      });
-    }
+  handleNewName: function (name) {
+    this.setstate({
+      name: name
+    });
   },
   // this fetches the value of name... and display to the screen
   render: function () {
@@ -33,13 +58,11 @@ var Greeter = React.createClass({
     var message = this.props.message;
 
     return (
-      <div>
+      <div className="container col-md-4">
         <h1>Hello {name}!</h1>
         <p>{message}</p>
-        <form onSubmit={this.onButtonClick}>
-          <input type="text" ref="name"/>
-          <button>Set name</button>
-        </form>
+        <GreeterMessage />
+        <GreeterForm onNewName={this.handleNewName}/>
       </div>
     );
   }
