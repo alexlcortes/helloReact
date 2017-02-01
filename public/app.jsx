@@ -32,7 +32,6 @@ var GreeterForm = React.createClass({
   }
 });
 
-
 var Greeter = React.createClass({
   // props get defined and these are the default props
   getDefaultProps: function () {
@@ -56,7 +55,6 @@ var Greeter = React.createClass({
   render: function () {
     var name = this.state.name;
     var message = this.props.message;
-
     return (
       <div>
         <GreeterMessage name={name} message={message}/>
@@ -69,6 +67,6 @@ var Greeter = React.createClass({
 var firstName = 'Jando';
 
 ReactDOM.render(
-  <Greeter name={firstName}/>,
+  <Greeter name={name}/>,
   document.getElementById('app')
 );
