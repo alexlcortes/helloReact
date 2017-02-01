@@ -4,7 +4,7 @@ var GreeterMessage = React.createClass({
     var message = this.props.message;
     return (
       <div>
-        <h1>Hello {name}!</h1>
+        <h1>Hello my name is {name}!</h1>
         <p>{message}</p>
       </div>
     );
@@ -47,7 +47,7 @@ var Greeter = React.createClass({
     };
   },
   handleNewName: function (name) {
-    this.setstate({
+    this.setState({
       name: name
     });
   },
@@ -64,9 +64,9 @@ var Greeter = React.createClass({
   }
 });
 
-var firstName = 'Jando';
+var firstName = 'Alex';
 
 ReactDOM.render(
-  <Greeter name={name}/>,
+  <Greeter name={firstName}/>,
   document.getElementById('app')
 );
