@@ -6,7 +6,7 @@ var GreeterMessage = React.createClass({
     var message = this.props.message;
     return (
       <div>
-        <h1>Hello my name is {name}!</h1>
+        <h3>Hello {name}.</h3>
         <p>{message}</p>
       </div>
     );
@@ -37,9 +37,15 @@ var GreeterForm = React.createClass({
     return (
       <div className="formArea col-6">
           <form onSubmit={this.onFormSubmit}>
-            <input className="inputArea" type="text" ref="name" placeholder="Name..."/>
-            <textarea className="textArea" ref="message" placeholder="Message..." rows="10"></textarea>
-            <button>submit</button>
+            <div>
+              <input className="inputArea" type="text" ref="name" placeholder="Name..."/>
+            </div>
+            <div>
+              <textarea className="textArea" ref="message" placeholder="Message..." rows="10"></textarea>
+            </div>
+            <div>
+              <button>submit</button>
+            </div>
           </form>
       </div>
     );
@@ -49,7 +55,7 @@ var GreeterForm = React.createClass({
 var Greeter = React.createClass({
   getDefaultProps: function () {
     return {
-      name: 'a React.js messenger app.',
+      name: 'I am a React.js textbox application',
       message: 'Type your name and message below. Then click submit.'
     };
   },
@@ -73,7 +79,6 @@ var Greeter = React.createClass({
     );
   }
 });
-
 
 ReactDOM.render(
   <Greeter />,

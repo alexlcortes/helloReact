@@ -1,3 +1,7 @@
+.nameSection {
+  margin-top: 25px;
+}
+
 .formArea {
   padding: 0px;
 }
@@ -8,5 +12,5 @@
 }
 
 .textArea {
-  width: 690px;
+  width: 490px;
 }
